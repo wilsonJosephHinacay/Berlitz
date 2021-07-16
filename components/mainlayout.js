@@ -98,6 +98,7 @@ const MainLayout = (props) => {
         .cart-footer {
             padding: 20px 40px;
             height: 100px;
+            border-bottom: 1px solid #eeeeee;
         }
 
         .cart-image {
