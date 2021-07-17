@@ -18,6 +18,7 @@ const Home = (props) => {
     const { addToast } = useToasts()
     const [image, setImage] = useState(product?.defaultImage);
     const [loading, setLoading] = useState(false);
+    const [cart, setCart] = useState({});
     const [btnText, setBtnText] = useState("ADD TO CART");
 
     const changeImage = (value) => {
@@ -30,19 +31,23 @@ const Home = (props) => {
     const setSelected = _.debounce((value) => {
         setLoading(false);
         setBtnText("VIEW CART");
+        setCart(value);
         addToast(<div>{`Item added to cart!`}</div>, {
             appearance: 'success',
             autoDismiss: true,
         })
-        console.log("cart added => ", value)
     }, 2000, {
         trailing: true
     });
 
     const addToCart = (selected) => {
-        setBtnText("LOADING");
-        setLoading(true);
-        setSelected(selected);
+        if (_.isEmpty(cart)) {
+            setBtnText("LOADING");
+            setLoading(true);
+            setSelected(selected);
+        } else {
+            console.log("view product => ", cart)
+        }
     }
 
     return <MainLayout {...props}>
