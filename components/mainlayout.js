@@ -98,7 +98,6 @@ const MainLayout = (props) => {
         .cart-footer {
             padding: 20px 40px;
             height: 100px;
-            border-bottom: 1px solid #eeeeee;
         }
 
         .cart-image {
@@ -126,6 +125,13 @@ const MainLayout = (props) => {
                 padding: 50px 20px;
             }
         }
+
+        @media (min-width: 200px) and (max-width: 991px){
+            .cart-footer {
+                border-bottom: 1px solid #eeeeee;
+            }
+        }
+        
         `}</style>
     </>
 };
